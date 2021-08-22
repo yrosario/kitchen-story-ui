@@ -1,0 +1,27 @@
+
+<div>
+    <button class="btn btn-primary" (click)="redirectToPage()">Add Product</button>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Desc</th>
+        <th scope="col">Image URL</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of getProductList()">
+        <td>{{ product.getId() }}</td>
+        <td>{{ product.getName() }}</td>
+        <td>{{ product.getPrice() }}</td>
+        <td>{{ product.getDescription() }}</td>
+        <td>{{ product.getImageUrl() }}</td>
+        <td><button class="btn btn-primary" (click)="redirectToPage()">edit</button></td>
+        <td><button class="btn btn-primary" (click)="removeProduct(product.getId())">delete</button></td>
+    </tbody>
+  </table>

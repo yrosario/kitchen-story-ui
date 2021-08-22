@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +18,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { AdminComponent } from './admin/admin.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 const appRouter: Routes=[
   { path: '', component:ShoppingCartComponent},
    {path: 'shop', component: ProductListComponent},
   { path: 'cart', component: CartComponent},
   {path: 'search/:searchTerm', component:ProductListComponent},
+  {path: 'auth', component:AuthComponent},
+  {path: 'admin', component:AdminComponent},
+  {path: 'product-form', component:ProductFormComponent}
 ];
 
 @NgModule({
@@ -38,7 +44,10 @@ const appRouter: Routes=[
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    AuthComponent,
+    AdminComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
