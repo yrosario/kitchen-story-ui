@@ -21,7 +21,7 @@
         <td>{{ product.getPrice() }}</td>
         <td>{{ product.getDescription() }}</td>
         <td>{{ product.getImageUrl() }}</td>
-        <td><button class="btn btn-primary" (click)="redirectToPage()">edit</button></td>
+        <td><button class="btn btn-primary" (click)="redirectToPageWithId(product.getId())">edit</button></td>
         <td><button class="btn btn-primary" (click)="removeProduct(product.getId())">delete</button></td>
     </tbody>
   </table>

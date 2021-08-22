@@ -1,11 +1,38 @@
 <div *ngIf="cartItems.length == 0" class="alert alert-info">Cart is empty</div>
 
-<ul *ngIf="cartItems.length > 0" class="list-group">
-    <li class="list-group-item" *ngFor="let item of cartItems">
-        <app-cart-item [cartItem]="item"></app-cart-item>
-    </li>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+      <th scope="col">price</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Sub Total</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of cartItems">
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <td><img src="{{ item.imageUrl }}" class="img-fluid img-thumbnail" [alt]="item.description"></td>
+      <td>{{ item.description}}</td>
+      <td><strong>{{ item.price | currency }}</strong></td>
+      <td><input type="number" [value]="item.qty" (click)="setQty(item,  $event)" min=1></td>
+      <td><strong>{{item.qty}} &nbsp; X &nbsp; {{item.price | currency}} </strong></td>
+      <td><button class="btn btn-primary" (click)="remove(item.id)">remove </button></td>
+    </tr>
+  </tbody>
+    <tr>
+      <td><span></span></td>
+      <td><span></span></td>
+      <td><span></span></td>
+      <td><span></span></td>
+      <td><h3><strong>Total</strong></h3></td>
+      <td><h3> <strong>{{  getTotal() | currency }}</strong></h3></td>
 
-    <div class="list-group-item active">
-        <strong>Total</strong> {{ getTotal() }}
-    </div>
-</ul>
+    </tr>
+
+</table>
+
+

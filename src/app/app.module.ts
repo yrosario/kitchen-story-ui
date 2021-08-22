@@ -23,13 +23,14 @@ import { AdminComponent } from './admin/admin.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 const appRouter: Routes=[
-  { path: '', component:ShoppingCartComponent},
+  { path: '', component:ProductListComponent},
    {path: 'shop', component: ProductListComponent},
   { path: 'cart', component: CartComponent},
   {path: 'search/:searchTerm', component:ProductListComponent},
   {path: 'auth', component:AuthComponent},
   {path: 'admin', component:AdminComponent},
-  {path: 'product-form', component:ProductFormComponent}
+  {path: 'product-form', component:ProductFormComponent},
+  {path: 'product-form:id', component:ProductFormComponent}
 ];
 
 @NgModule({

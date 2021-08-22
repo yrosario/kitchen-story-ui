@@ -1,3 +1,6 @@
-<div>
-    <span>{{ cartItem.name }}</span> {{ " " }}  <span>{{ cartItem.price }}</span> x <span>{{ cartItem.qty }}</span>: <strong>{{ cartItem.qty * cartItem.price | currency:'USD'}}</strong>
-</div>
+<tr>
+    <th scope="row">{{ cartItem.id }}</th>
+    <td><img src="{{ cartItem.imageUrl }}" class="img-fluid img-thumbnail" alt="Sheep"></td>
+    <td>{{ cartItem.description}}</td>
+    <td>{{ cartItem.price }}</td>
+  </tr>

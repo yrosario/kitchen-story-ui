@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../entity/product.entity';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -22,6 +23,11 @@ export class AdminComponent implements OnInit {
 
   redirectToPage():void{
     this.router.navigate(['/product-form']);
+  }
+
+  redirectToPageWithId(id:number):void{
+
+    this.router.navigate(['/product-form', { queryParams: { id: id } }]);
   }
 
   removeProduct(id:number){
